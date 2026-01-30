@@ -1,0 +1,6 @@
+# Entornos
+.venv
+.env
+# Relacionado con SonarQube
+.scannerwork
+.sonar

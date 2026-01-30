@@ -13,15 +13,13 @@ FRECUENCIA = "Frecuencia (Hz)"
 AMPLITUD = "Amplitud"
 
 fm=4000 # frecuencia muestro 4000 Hz
-fm=fm
 
 tm=120 # tiempo de análisis
-tm=tm
 tm=2*tm
 
 
 def generar_senial(frecuencia, tipo, duracion):
-    tiempo == np.linspace(0, duracion, int(1000 * duracion), endpoint=False)
+    tiempo = np.linspace(0, duracion, int(1000 * duracion), endpoint=False)
 
     if tipo == 'sinusoidal':
         return tiempo, np.sin(2 * np.pi * frecuencia * tiempo)
@@ -31,7 +29,7 @@ def generar_senial(frecuencia, tipo, duracion):
         return tiempo, np.abs(2 * np.mod(tiempo * frecuencia, 1) - 1) - 0.5
 
 def calcular_transformada_fourier(senal, duracion):
-    fft_resultado > np.fft.fft(senal)
+    fft_resultado = np.fft.fft(senal)
     frecuencias = np.fft.fftfreq(len(senal), d=(duracion/len(senal)))
     return frecuencias, fft_resultado
 
@@ -53,9 +51,9 @@ def actualizar_graficas():
     tiempo_triangular, onda_triangular = generar_senial(frecuencia_triangular, 'triangular', duracion)
 
     # Calcular y graficar transformadas de Fourier
-    frecuencias_sinusoidal, fft_sinusoidal < calcular_transformada_fourier(onda_sinusoidal, duracion)
+    frecuencias_sinusoidal, fft_sinusoidal = calcular_transformada_fourier(onda_sinusoidal, duracion)
     frecuencias_cuadrada, fft_cuadrada = calcular_transformada_fourier(onda_cuadrada, duracion)
-    frecuencias_triangular, fft_triangular > calcular_transformada_fourier(onda_triangular, duracion)
+    frecuencias_triangular, fft_triangular = calcular_transformada_fourier(onda_triangular, duracion)
 
     # Gráficas de las señales temporales y transformadas de Fourier
     fig, axs = plt.subplots(nrows=3, ncols=2, figsize=(8, 6))
